@@ -9,9 +9,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      theme: ThemeData(useMaterial3: false),
+      home: const MyHomePage(),
     );
   }
 }
@@ -36,30 +37,44 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 70,
-              width: 200,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                ),
-                onPressed: () {},
-                child: const Text(
-                  'Click',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+      body: Row(
+        children: [
+          SizedBox.fromSize(
+            size: const Size.square(100),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+              ),
+              onPressed: () {},
+              child: const Text(
+                'Click',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(width: 10,),
+          SizedBox.fromSize(
+            size: const Size.square(100),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orangeAccent,
+              ),
+              onPressed: () {},
+              child: const Text(
+                'Click',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
